@@ -1,0 +1,20 @@
+{
+  "source": "existing normalized ordinary Mandarin test WAVs",
+  "assets": [
+    {
+      "name": "arrive.wav",
+      "bytes": 102604,
+      "sha256": "f8a3085f70641cc69335364cce8a4da3b2bd24e6cd02c9794215689e97289ea5"
+    },
+    {
+      "name": "leave.wav",
+      "bytes": 81324,
+      "sha256": "6a3da0ad3b276689f368acd48a0384ff1607915a7ee24f26ecd49e1aa57d5267"
+    },
+    {
+      "name": "take_key.wav",
+      "bytes": 74604,
+      "sha256": "4358d7ce1d6ca57528b4b59d94d6acf94e29dab045eb263102e305045531f939"
+    }
+  ]
+}

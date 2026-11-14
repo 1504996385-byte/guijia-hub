@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#626f45">
+  <title>归家中枢 · 把话留给归来的人</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brandmark" aria-hidden="true">⌂</div>
+      <div><p class="eyebrow">A LITTLE PLACE FOR YOUR WORDS</p><h1>归家中枢</h1><p class="subtitle">把话留给归来的人。</p></div>
+      <span class="local-badge">本机版</span>
+    </header>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <section id="login-panel" class="card login-card">
+      <h2>先连接你的归家中枢</h2><p class="muted">填写本机生成的手机访问凭证，仅保存在当前浏览器会话。</p>
+      <form id="login-form" class="inline-form"><label class="grow">手机访问凭证<input id="token" type="password" autocomplete="off" spellcheck="false" required placeholder="粘贴 phone_token"></label><button type="submit">连接</button></form>
+      <p class="small muted">凭证位于服务启动时显示的本机 tokens.json 文件中。设备使用另一份凭证。</p>
+    </section>
+    <div id="workspace" hidden>
+      <section class="welcome-strip"><div><span class="live-dot" aria-hidden="true"></span><span id="today">正在读取日期</span></div><span id="weather-summary">天气未配置</span></section>
+      <nav class="tabs" aria-label="主要功能">
+        <button class="tab active" data-tab="messages" aria-selected="true">留一句话</button>
+        <button class="tab" data-tab="library" aria-selected="false">声音小屋</button>
+        <button class="tab" data-tab="schedules" aria-selected="false">记得这一天</button>
+        <button class="tab" data-tab="events" aria-selected="false">钥匙记录</button>
+        <button class="tab" data-tab="settings" aria-selected="false">连接设置</button>
+      </nav>
+      <section id="panel-messages" class="panel">
+        <div class="two-columns">
+          <section class="card compose">
+            <p class="eyebrow">A VOICE FOR LATER</p><h2>想对谁说？</h2>
+            <form id="message-form">
+              <div class="form-grid"><label>留给<select id="recipient"><option value="1">TA</option><option value="0">我自己</option></select></label><label>什么时候播放<select id="trigger"><option value="arrive">钥匙放回时</option><option value="leave">钥匙取走时</option></select></label></div>
+              <label>给这句话起个名字<input id="message-title" maxlength="120" placeholder="比如：回家记得吃饭"></label>
+              <button id="record" type="button" class="record-button"><span id="record-icon" aria-hidden="true">●</span><span id="record-label">按住，说句话</span><span class="record-limit">最长30秒</span></button>
+              <p id="record-state" class="small muted">松手保存录音，再确认发送。支持键盘空格键按住录音。</p>
+              <audio id="record-preview" controls hidden></audio>
+              <label class="file-choice">也可以选择一段音频<input id="message-file" type="file" accept="audio/*,.wav"></label>
+              <p id="draft-info" class="small muted">还没有选择声音</p>
+              <button id="send-message" type="submit" class="wide" disabled>把话留在这里 →</button>
+            </form>
+          </section>
+          <section class="card inbox-card"><div class="section-heading"><div><p class="eyebrow">ON ITS WAY HOME</p><h2>已经留下的话</h2></div><button class="button-quiet" id="refresh-messages">刷新</button></div>
+            <p class="small muted">已发送 → 设备已收到 → 设备已播放。回执不会表示对方已经听见。</p><div id="messages-list" class="item-list"></div>
+          </section>
+        </div>
+      </section>
+      <section id="panel-library" class="panel" hidden>
+        <div class="two-columns">
+          <section class="card"><p class="eyebrow">FAMILIAR VOICES</p><h2>声音小屋</h2><p class="muted">收藏熟悉的乡音，也可以导入普通话测试语音。请如实标注声音来源。</p>
+            <form id="voice-form"><label>声音名称<input id="voice-title" required maxlength="120" placeholder="比如：妈妈的一句欢迎回家"></label><div class="form-grid"><label>语言或方言<input id="voice-language" maxlength="40" value="普通话"></label><label>声音来源<select id="voice-source"><option value="human">真人录音</option><option value="test">测试语音</option><option value="tts">合成语音</option></select></label></div>
+              <label class="file-choice">选择音频<input id="voice-file" type="file" accept="audio/*,.wav"></label><label class="check-label"><input id="voice-use-draft" type="checkbox">使用“留一句话”中刚录好的声音</label><button type="submit" class="wide">存进声音小屋</button></form>
+          </section>
+          <section class="card"><div class="section-heading"><h2>收藏的声音</h2><button id="refresh-library" class="button-quiet">刷新</button></div><div id="library-list" class="item-list"></div></section>
+        </div>
+      </section>
+      <section id="panel-schedules" class="panel" hidden>
+        <div class="two-columns"><section class="card"><p class="eyebrow">SOME DAYS DESERVE A WORD</p><h2>记得这一天</h2><p class="muted">到指定日期，把声音放进信箱，等下一次钥匙取放时播放。</p>
+          <form id="schedule-form"><label>留言名称<input id="schedule-title" required maxlength="120" placeholder="生日快乐，或者一件别忘记的事"></label><div class="form-grid"><label>日期类型<select id="schedule-kind"><option value="once">指定日期 · 一次</option><option value="birthday">公历生日 · 每年</option></select></label><label id="schedule-date-label">指定日期<input id="schedule-date" type="date" required></label></div><p id="birthday-note" class="small muted" hidden>生日只使用月日；2月29日仅在闰年触发。</p><div class="form-grid"><label>留给<select id="schedule-recipient"><option value="1">TA</option><option value="0">我自己</option></select></label><label>触发时机<select id="schedule-trigger"><option value="arrive">钥匙放回时</option><option value="leave">钥匙取走时</option></select></label></div><label>选择声音<select id="schedule-voice" required><option value="">请先在声音小屋存一段声音</option></select></label><button type="submit" class="wide">记下这一天</button></form>
+        </section><div><section class="card"><h2>等着送出的日期留言</h2><div id="schedules-list" class="item-list"></div></section><section class="card calendar-card"><h2>节气日历</h2><p id="calendar-state" class="small muted"></p><div id="solar-terms" class="terms-grid"></div></section></div></div>
+      </section>
+      <section id="panel-events" class="panel" hidden><section class="card"><div class="section-heading"><div><p class="eyebrow">THE SMALL RHYTHMS OF HOME</p><h2>钥匙取放记录</h2></div><button id="refresh-events" class="button-quiet">刷新</button></div><p class="muted">这里只记录钥匙的取走与放回，不把钥匙状态当作本人行踪。时间以服务器接收时间为准。</p><div id="events-list" class="item-list"></div></section></section>
+      <section id="panel-settings" class="panel" hidden><div class="two-columns"><section class="card"><h2>连接状态</h2><dl class="settings-list"><dt>手机网页</dt><dd>已连接本机服务</dd><dt>设备回执</dt><dd>接板并配置后，由设备真实回传</dd><dt>AI欢迎语</dt><dd id="ai-state">未配置</dd><dt>天气</dt><dd id="weather-state">未配置</dd><dt>手机麦克风</dt><dd id="mic-state"></dd></dl><button id="logout" class="button-quiet">断开本次会话</button></section>
+      <section class="card"><h2>试一句 AI 欢迎语</h2><p class="muted">配置涂鸦 AI 服务或受控网关后，这里会真实请求。未配置时保留本地欢迎语。</p><button id="try-ai">生成一句欢迎语</button><p id="ai-result" class="ai-result">还没有生成。</p><p class="small muted">当前是本机版本。手机远程使用需要另行配置同网访问及 HTTPS。</p></section></div></section>
+      <footer><span>让归家，多一点被惦记的感觉。</span><span id="last-refresh"></span></footer>
+    </div>
+  </main>
+</body>
+</html>

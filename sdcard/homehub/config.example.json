@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "wifi_ssid": "",
+  "wifi_password": "",
+  "server_url": "",
+  "device_token": "",
+  "chat_enabled": true,
+  "tuya_product_id": "3rhb25ktaqov4akw",
+  "pir_enabled": true,
+  "volume": 100,
+  "note": "按实际固件配置说明填写。联网未配置时本地录音和取放播放仍须正常。此文件不包含真实密钥。"
+}

@@ -1,0 +1,88 @@
+{
+  "sample_rate": 16000,
+  "bits": 16,
+  "channels": 1,
+  "is_human_recording": false,
+  "is_dialect": false,
+  "source": "Windows speech synthesis",
+  "phrases": [
+    {
+      "file": "arrive_01.wav",
+      "text": "欢迎回家，先歇一歇。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "arrive_02.wav",
+      "text": "回来啦，今天辛苦了。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "arrive_03.wav",
+      "text": "钥匙放好了，欢迎回家。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "arrive_04.wav",
+      "text": "家里有你，真好。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "arrive_05.wav",
+      "text": "喝口水，慢慢来。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "arrive_06.wav",
+      "text": "忙了一天，放松一下吧。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_01.wav",
+      "text": "出门记得带好钥匙。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_02.wav",
+      "text": "一路平安，回家见。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_03.wav",
+      "text": "记得带上手机和钥匙。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_04.wav",
+      "text": "出门慢一点，不着急。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_05.wav",
+      "text": "祝你今天顺顺利利。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "leave_06.wav",
+      "text": "记得按时吃饭，照顾好自己。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    },
+    {
+      "file": "take_key.wav",
+      "text": "出门记得拿钥匙。",
+      "source": "Windows system speech, synthetic Mandarin test audio",
+      "voice": "Microsoft Huihui Desktop"
+    }
+  ]
+}

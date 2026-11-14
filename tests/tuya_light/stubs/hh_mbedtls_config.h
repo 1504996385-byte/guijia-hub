@@ -1,0 +1,4 @@
+#define MBEDTLS_MD_C
+#define MBEDTLS_SHA256_C
+#define MBEDTLS_SHA224_C
+#define MBEDTLS_PLATFORM_C
